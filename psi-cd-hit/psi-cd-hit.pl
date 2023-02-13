@@ -138,9 +138,11 @@ for (; $i0<$NR_no; $i0++) {
       }
     }
   }
-  if ((($i0+1) % (int($NR_no/10)) == 0) or ($DB_len_reduced > $DB_len/10) or $opt_aL_format_flag ) {
-    ($DB_no, $DB_len) = blast_formatdb();
-    $DB_len_reduced = 0;
+  if (int($NR_no/10)>0){
+    if ((($i0+1) % (int($NR_no/10)) == 0) or ($DB_len_reduced > $DB_len/10) or $opt_aL_format_flag ) {
+        ($DB_no, $DB_len) = blast_formatdb();
+        $DB_len_reduced = 0;
+    }
   }
   #if ($formatdb_no - ($NR_no-$NR_passed) >= $reformat_seg) {blast_formatdb(); }
 }
